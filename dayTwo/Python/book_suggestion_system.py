@@ -66,9 +66,9 @@ books.append("The Mystery")
 books.append("Animal Farm")
 books.append("Brave Kingdom")
 
-operation = 0
+count = 0
 
-while operation != 6:
+while count != 6:
 
     print("\nWelcome to the Book Suggestion System!")
     print("1. Get Suggestions")
@@ -79,7 +79,7 @@ while operation != 6:
     print("6. Exit")
 
 
-    user_input = input("Enter operation: ")
+    user_input = input("Enter action: ")
 
 
     match user_input:
@@ -107,7 +107,7 @@ while operation != 6:
 
         case "6":
             print("Goodbye!")
-            operation = 6
+            count = 6
 
         case _:
             print("Invalid option!")

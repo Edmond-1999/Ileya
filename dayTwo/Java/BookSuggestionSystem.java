@@ -87,9 +87,9 @@ public class BookSuggestionSystem {
         books.add("Animal Farm");
         books.add("Brave Kingdom");
 
-        int operation = 0;
+        int number = 0;
 
-        while (operation != 6) {
+        while (number != 6) {
 
             System.out.println("\nWelcome to the Book Suggestion System!");
             System.out.println("1. Get Suggestions");
@@ -99,12 +99,12 @@ public class BookSuggestionSystem {
             System.out.println("5. Show All Books");
             System.out.println("6. Exit");
 
-            System.out.print("Enter operation: ");
-            operation = input.nextInt();
+            System.out.print("Enter action: ");
+            number = input.nextInt();
             input.nextLine();
 
 
-            switch (operation) {
+            switch (number) {
                 case 1:
                     String answer = "yes";
                     while (answer.equalsIgnoreCase("yes")) {
