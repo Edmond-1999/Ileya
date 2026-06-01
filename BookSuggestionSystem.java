@@ -144,7 +144,6 @@ public class BookSuggestionSystem {
 
                 default:
                     System.out.println("Invalid option!");
-                    break;
             }
         }
     }
