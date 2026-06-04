@@ -27,7 +27,7 @@ public class BookSuggestionSystem {
             }
         }
 
-        if (found) {
+        if (found = true) {
             return "Book already exists!";
         }
 
