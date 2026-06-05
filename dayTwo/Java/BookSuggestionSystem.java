@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class BookSuggestionSystem {
+public class BookSuggestionSystem{
 
-    public static String getSuggestion(ArrayList<String> books) {
+    public static String getSuggestion(ArrayList<String> books){
 
         Random random = new Random();
 
@@ -16,18 +16,18 @@ public class BookSuggestionSystem {
                 + "\nPage: " + randomPage;
     }
 
-    public static String addBook(ArrayList<String> books, String newBook) {
+    public static String addBook(ArrayList<String> books, String newBook){
 
         boolean found = false;
 
-        for (int count = 0; count < books.size(); count++) {
+        for (int count = 0; count < books.size(); count++){
 
-            if (books.get(count).equalsIgnoreCase(newBook)) {
+            if (books.get(count).equalsIgnoreCase(newBook)){
                 found = true;
             }
         }
 
-        if (found = true) {
+        if (found) {
             return "Book already exists!";
         }
 
@@ -35,11 +35,11 @@ public class BookSuggestionSystem {
         return "Book added successfully!";
     }
 
-    public static String removeBook(ArrayList<String> books, String bookTitle) {
+    public static String removeBook(ArrayList<String> books, String bookTitle){
 
-        for (int count = 0; count < books.size(); count++) {
+        for (int count = 0; count < books.size(); count++){
 
-            if (books.get(count).equalsIgnoreCase(bookTitle)) {
+            if (books.get(count).equalsIgnoreCase(bookTitle)){
 
                 books.remove(count);
                 return "Book removed successfully!";
@@ -49,11 +49,11 @@ public class BookSuggestionSystem {
         return "Book not found!";
     }
 
-    public static String updateBook(ArrayList<String> books, String oldTitle, String newTitle) {
+    public static String updateBook(ArrayList<String> books, String oldTitle, String newTitle){
 
-        for (int count = 0; count < books.size(); count++) {
+        for (int count = 0; count < books.size(); count++){
 
-            if (books.get(count).equalsIgnoreCase(oldTitle)) {
+            if (books.get(count).equalsIgnoreCase(oldTitle)){
 
                 books.set(count, newTitle);
                 return "Book updated successfully!";
@@ -63,11 +63,11 @@ public class BookSuggestionSystem {
         return "Book not found!";
     }
 
-    public static String showBooks(ArrayList<String> books) {
+    public static String showBooks(ArrayList<String> books){
 
         String allBooks = "\nAll Books\n";
 
-        for (int count = 0; count < books.size(); count++) {
+        for (int count = 0; count < books.size(); count++){
 
             allBooks = allBooks + (count + 1) + ". "
                     + books.get(count) + "\n";
@@ -76,7 +76,7 @@ public class BookSuggestionSystem {
         return allBooks;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         Scanner input = new Scanner(System.in);
 
@@ -99,15 +99,15 @@ public class BookSuggestionSystem {
             System.out.println("5. Show All Books");
             System.out.println("6. Exit");
 
-            System.out.print("Enter action: ");
+            System.out.print("Enter number: ");
             number = input.nextInt();
             input.nextLine();
 
 
-            switch (number) {
+            switch (number){
                 case 1:
                     String answer = "yes";
-                    while (answer.equalsIgnoreCase("yes")) {
+                    while (answer.equalsIgnoreCase("yes")){
                         System.out.println(getSuggestion(books));
                         System.out.print("Would you like another suggestion? (yes/no): ");
                         answer = input.nextLine();

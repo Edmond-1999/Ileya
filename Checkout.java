@@ -76,7 +76,7 @@ public class Checkout{
         System.out.println("=========================================================");
         System.out.println("\t\t\tBill Total:\t" + billTotal);
         System.out.println("=========================================================");
-        System.out.println("THIS IS NOT AN RECEIPT KINDLY PAY " + billTotal);
+        System.out.println("You are to Pay: " + billTotal);
         System.out.println("=========================================================");
 
 
@@ -107,7 +107,7 @@ public class Checkout{
 
     }
 
-    private static void printInvoiceTop(String cashierName, String customerName, String date){
+    public static void printInvoiceTop(String cashierName, String customerName, String date){
         System.out.println("\nSEMICOLON STORES");
         System.out.println("MAIN BRANCH");
         System.out.println("LOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.");
@@ -120,7 +120,7 @@ public class Checkout{
         System.out.println("---------------------------------------------------------");
     }
 
-    private static void printCartItems(ArrayList<String> names, ArrayList<Integer> quantity, ArrayList<Double> prices){
+    public static void printCartItems(ArrayList<String> names, ArrayList<Integer> quantity, ArrayList<Double> prices){
         for (int index = 0; index < names.size(); index++) {
             double productTotal = quantity.get(index) * prices.get(index);
             System.out.println(names.get(index) + "\t\t" + quantity.get(index) + "\t" + prices.get(index) + "\t\t" + productTotal);
