@@ -1,38 +1,53 @@
-import java.util.Scanner;
+public class CreditCardValidator{
 
-public class CreditCardValidator {
+    public static void main(String[] args){
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter Card Number: ");
-        String cardNumber = input.nextLine();
+        String cardNumber = "468368746945295";
 
-        int length = cardNumber.length();
+        System.out.println("**************************************************");
+        System.out.println("Credit Card Type: " + getCardType(cardNumber));
+        System.out.println("Credit Card Number: " + cardNumber);
+        System.out.println("Credit Card Digit Length: " + getCardLength(cardNumber));
+        System.out.println("Credit Card Validity Status: " + getCardValidity(cardNumber));
+        System.out.println("**************************************************");
 
+    }
+
+    public static String getCardType(String cardNumber){
         String cardType = "";
 
-        if (cardNumber.length() > 0){
-            if (cardNumber.charAt(0) == '4'){
-                cardType = "Visa Card";
-            }
-            else if (cardNumber.charAt(0) == '5'){
-                cardType = "MasterCard";
-            }
-            else if (cardNumber.charAt(0) == '3' && cardNumber.charAt(1) == '7'){
-                cardType = "American Express Card";
-            }
-            else if (cardNumber.charAt(0) == '6'){
-                cardType = "Discover Card";
-            }
-            else{
-                cardType = "Invalid Card";
-            }
+        if (cardNumber.charAt(0) == '4'){
+            cardType = "Visa Card";
         }
+        else if (cardNumber.charAt(0) == '5'){
+            cardType = "MasterCard";
+        }
+        else if (cardNumber.charAt(0) == '3' && cardNumber.charAt(1) == '7'){
+            cardType = "American Express Card";
+        }
+        else if (cardNumber.charAt(0) == '6'){
+            cardType = "Discover Card";
+        }
+        else{
+            cardType = "Invalid Card";
+        }
+        
+        return cardType;
 
+    }
 
-        int[] digits = new int[length];
-        for (int index = 0; index < length; index++){
+    public static int getCardLength(String cardNumber){
+        int length = cardNumber.length();
+        return length;
+    }
+
+    public static int lhunAlgorithm(String cardNumber){
+
+        int cardLength = getCardLength(cardNumber);
+
+        int[] digits = new int[cardLength];
+        for (int index = 0; index < cardLength; index++){
             digits[index] = cardNumber.charAt(index) - '0';
         }
 
@@ -43,7 +58,7 @@ public class CreditCardValidator {
 
         int counter = 0;
         int currentDigit = 0;
-        for (int index = length - 1; index >= 0; index--){
+        for (int index = cardLength - 1; index >= 0; index--){
             currentDigit = digits[index];
 
             if (counter % 2 == 1){
@@ -65,20 +80,23 @@ public class CreditCardValidator {
 
 
         int totalSum = sumOfEvenPlaces + sumOfOddPlaces;
-        String validity = "Invalid";
-        
 
-        if (length >= 13 && length <= 16 && cardType != "Invalid Card" && totalSum % 10 == 0){
+        return totalSum;
+    }
+
+    public static String getCardValidity(String cardNumber){
+        String cardType = getCardType(cardNumber);
+        int cardLength = getCardLength(cardNumber);
+        int luhnAlgorithm = lhunAlgorithm(cardNumber);
+
+        String validity = "Invalid";
+
+        if(cardLength >= 13 && cardLength <= 16 && cardType != "Invalid Card" && luhnAlgorithm % 10 == 0){
             validity = "Valid";
         }
 
-        System.out.println("**************************************************");
-        System.out.println("Credit Card Type: " + cardType);
-        System.out.println("Credit Card Number: " + cardNumber);
-        System.out.println("Credit Card Digit Length: " + length);
-        System.out.println("Credit Card Validity Status: " + validity);
-        System.out.println("**************************************************");
-
+        return validity;
     }
 }
+
 
